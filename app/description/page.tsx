@@ -17,13 +17,15 @@ export default function page() {
         </div>
 
         <div className=" max-w-[251px] w-full absolute top-[60px] left-[20px] flex justify-between items-center">
-          <Image
-            src="/frame.png"
-            alt="frame"
-            width={44}
-            height={44}
-            className="rounded-[10px]"
-          />
+          <div onClick={()=>router.push("/")}>
+            <Image
+              src="/frame.png"
+              alt="frame"
+              width={44}
+              height={44}
+              className="rounded-[10px]"
+            />
+          </div>
           <div className="w-[151px] h-[30px] flex-1 flex justify-center items-center text-[12px] sm:text-[19px] font-bold text-[rgba(255,255,255,1)]">
             PEUGEOT-LR01
           </div>

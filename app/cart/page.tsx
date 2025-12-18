@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 export default function page() {
+  const router = useRouter();
+  const [count, setCount] = useState(1);
+  const [count1, setCount1] = useState(1);
+  const [count2, setCount2] = useState(1);
   return (
     <div className="bg-[rgba(36,44,59,1)] max-w-sm h-[700px] mx-auto relative overflow-x-hidden">
       <div className="flex items-center h-[44px] justify-between px-[8px]">
@@ -36,13 +43,15 @@ export default function page() {
       </div>
 
       <div className="h-[44px] w-[251px] absolute top-[60px] left-[20px] flex justify-between items-center">
-        <Image
-          src="/frame.png"
-          alt="frame"
-          width={44}
-          height={44}
-          className="rounded-[10px]"
-        />
+        <div onClick={() => router.push("/description")}>
+          <Image
+            src="/frame.png"
+            alt="frame"
+            width={44}
+            height={44}
+            className="rounded-[10px]"
+          />
+        </div>
         <div className="max-w-[180px] h-[30px] text-end text-[19px] font-bold text-[rgba(255,255,255,1)]">
           My Shopping Cart
         </div>
@@ -62,7 +71,7 @@ export default function page() {
                 $ 1,999.99
               </div>
               <div className=" max-w-[79px] rounded-[8px] flex items-center gap-[10px]">
-                <div>
+                <div onClick={() => setCount(count + 1)}>
                   <Image
                     src="/plus1.png"
                     alt="plus"
@@ -72,9 +81,9 @@ export default function page() {
                   />
                 </div>
                 <div className="text-[13px] font-semibold text-[#FFFFFF99]">
-                  1
+                  {count}
                 </div>
-                <div>
+                <div onClick={() => setCount(count - 1)}>
                   <Image
                     src="/minus.png"
                     alt="minus"
@@ -101,7 +110,7 @@ export default function page() {
                 $ 3,999.99
               </div>
               <div className="h-[30px] max-w-[79px] rounded-[8px] flex items-center gap-[10px]">
-                <div>
+                <div onClick={() => setCount2(count2 + 1)}>
                   <Image
                     src="/plus1.png"
                     alt="plus"
@@ -111,9 +120,9 @@ export default function page() {
                   />
                 </div>
                 <div className="text-[13px] font-semibold text-[#FFFFFF99]">
-                  1
+                  {count2}
                 </div>
-                <div>
+                <div onClick={() => setCount2(count2 - 1)}>
                   <Image
                     src="/minus.png"
                     alt="minus"
@@ -140,7 +149,7 @@ export default function page() {
                 $ 120
               </div>
               <div className="max-w-[79px] rounded-[8px] flex items-center gap-[10px]">
-                <div>
+                <div onClick={() => setCount1(count1 + 1)}>
                   <Image
                     src="/plus1.png"
                     alt="plus"
@@ -150,9 +159,9 @@ export default function page() {
                   />
                 </div>
                 <div className="text-[13px] font-semibold text-[#FFFFFF99]">
-                  1
+                  {count1}
                 </div>
-                <div>
+                <div onClick={() => setCount1(count1 - 1)}>
                   <Image
                     src="/minus.png"
                     alt="minus"
